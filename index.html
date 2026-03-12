@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karma Strike | Hong Kong Villain Hitting</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+        }
+
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #2a0808 0%, #0a0a0a 100%);
+            border-bottom: 2px solid #ff003c;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #ff003c;
+            text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .step-card {
+            background: #151515;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .step-card h3 {
+            color: #ff003c;
+            margin-bottom: 10px;
+        }
+
+        .order-section {
+            background: #111;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #ff003c;
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #aaa;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #ff003c;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #ff003c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover {
+            background: #d40032;
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .steps {
+                flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>Karma Strike</h1>
+        <p>Authentic Hong Kong "Villain Hitting" rituals. Send bad karma back to those who deserve it, performed by real street masters under the Canal Road flyover.</p>
+    </section>
+
+    <div class="container">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step-card">
+                <h3>1. Name The Target</h3>
+                <p>Tell us who wronged you and what they did.</p>
+            </div>
+            <div class="step-card">
+                <h3>2. The Ritual</h3>
+                <p>Our agent in Hong Kong pays a traditional master to perform the ritual.</p>
+            </div>
+            <div class="step-card">
+                <h3>3. Video Proof</h3>
+                <p>Receive a high-quality video of the ritual within 48 hours.</p>
+            </div>
+        </div>
+
+        <div class="order-section">
+            <h2 style="margin-bottom: 30px;">Order The Ritual ($24.99)</h2>
+            <form id="ritualForm">
+                <div class="form-group">
+                    <label for="targetName">Target's Full Name / Nickname</label>
+                    <input type="text" id="targetName" placeholder="e.g. John Doe or 'My Toxic Ex'" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">What did they do? (Optional)</label>
+                    <textarea id="reason" rows="3" placeholder="e.g. Stole my idea, broke my heart..."></textarea>
+                </div>
+                <button type="button" class="btn-submit" onclick="alert('В будущем эта кнопка будет перекидывать на оплату!')">Curse Them Now</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
