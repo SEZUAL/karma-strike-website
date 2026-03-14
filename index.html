@@ -39,12 +39,17 @@
         .btn-submit { display: block; width: 100%; padding: 18px; background: #ff003c; color: #fff; border: none; border-radius: 6px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; margin-top: 20px;}
         .btn-submit:hover { background: #d40032; box-shadow: 0 0 15px rgba(255, 0, 60, 0.5); }
 
+        /* CIS Hint under EN button */
+        .cis-hint { text-align: center; margin-top: 15px; font-size: 0.85rem; color: #888; }
+        .cis-hint a { color: #ff003c; text-decoration: none; font-weight: bold; cursor: pointer; }
+        .cis-hint a:hover { text-decoration: underline; }
+
         /* Footer & Disclaimer */
         footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.85rem; border-top: 1px solid #222; margin-top: 50px; }
         .disclaimer { color: #888; margin-top: 10px; font-style: italic; }
 
         /* Language Switching Logic */
-        .lang-ru { display: none; } /* Скрываем русский по умолчанию */
+        .lang-ru { display: none; }
     </style>
 </head>
 <body>
@@ -90,7 +95,11 @@
                     <textarea id="reason" rows="3" placeholder="..."></textarea>
                 </div>
 
-                <button type="button" class="btn-submit lang-en" onclick="alert('Proceeding to Lemon Squeezy / Gumroad...')">Initiate Ritual</button>
+                <div class="lang-en">
+                    <button type="button" class="btn-submit" onclick="alert('Proceeding to Lemon Squeezy (International)...')">Initiate Ritual</button>
+                    <p class="cis-hint">From CIS/Russia? <a onclick="alert('Proceeding to Lava.top (CIS)...')">Click here to pay with local cards</a></p>
+                </div>
+
                 <button type="button" class="btn-submit lang-ru" onclick="alert('Переход на оплату Lava.top...')">Начать ритуал</button>
             </form>
         </div>
@@ -105,12 +114,10 @@
 
     <script>
         function setLang(lang) {
-            // Управляем кнопками
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-ru').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
 
-            // Управляем текстом
             const elementsEn = document.querySelectorAll('.lang-en');
             const elementsRu = document.querySelectorAll('.lang-ru');
 
