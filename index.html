@@ -11,44 +11,37 @@
         body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; line-height: 1.6; }
         h1, h2 { font-family: 'Cinzel', serif; text-align: center; }
         
-        /* Header & Lang Toggle */
         header { display: flex; justify-content: flex-end; padding: 20px; background: #000; }
         .lang-btn { background: none; border: 1px solid #444; color: #fff; padding: 5px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; margin-left: 10px; transition: 0.3s; }
         .lang-btn.active { background: #ff003c; border-color: #ff003c; }
 
-        /* Hero Section */
         .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at center, #2a0808 0%, #0a0a0a 100%); border-bottom: 2px solid #ff003c; box-shadow: 0 0 20px rgba(255, 0, 60, 0.2); }
         .hero h1 { font-size: 3.5rem; color: #ff003c; text-shadow: 0 0 10px #ff003c; margin-bottom: 20px; }
         .hero p { font-size: 1.2rem; color: #cccccc; max-width: 600px; margin: 0 auto; }
 
-        /* Main Container */
         .container { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
 
-        /* Video Proof Section (Placeholders) */
         .video-section { text-align: center; margin-bottom: 60px; }
         .video-grid { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
         .video-placeholder { background: #151515; border: 1px dashed #ff003c; width: 200px; height: 350px; display: flex; align-items: center; justify-content: center; color: #555; border-radius: 8px; font-size: 0.9rem; }
 
-        /* Order Form */
         .order-section { background: #111; padding: 40px; border-radius: 12px; border: 1px solid #ff003c; box-shadow: 0 0 15px rgba(255, 0, 60, 0.1); }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
-        input[type="text"], textarea { width: 100%; padding: 15px; background: #000; border: 1px solid #444; color: #fff; border-radius: 6px; font-family: inherit; }
-        input[type="text"]:focus, textarea:focus { outline: none; border-color: #ff003c; }
+        input[type="text"], input[type="email"], input[type="file"], textarea { width: 100%; padding: 15px; background: #000; border: 1px solid #444; color: #fff; border-radius: 6px; font-family: inherit; }
+        input:focus, textarea:focus { outline: none; border-color: #ff003c; }
         
         .btn-submit { display: block; width: 100%; padding: 18px; background: #ff003c; color: #fff; border: none; border-radius: 6px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; margin-top: 20px;}
         .btn-submit:hover { background: #d40032; box-shadow: 0 0 15px rgba(255, 0, 60, 0.5); }
+        .btn-submit:disabled { background: #555; cursor: not-allowed; }
 
-        /* CIS Hint under EN button */
         .cis-hint { text-align: center; margin-top: 15px; font-size: 0.85rem; color: #888; }
         .cis-hint a { color: #ff003c; text-decoration: none; font-weight: bold; cursor: pointer; }
         .cis-hint a:hover { text-decoration: underline; }
 
-        /* Footer & Disclaimer */
         footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.85rem; border-top: 1px solid #222; margin-top: 50px; }
         .disclaimer { color: #888; margin-top: 10px; font-style: italic; }
 
-        /* Language Switching Logic */
         .lang-ru { display: none; }
     </style>
 </head>
@@ -63,8 +56,8 @@
         <h1 class="lang-en">Karma Strike</h1>
         <h1 class="lang-ru">Karma Strike</h1>
         
-        <p class="lang-en">Authentic Hong Kong "Villain Hitting" rituals. Send bad vibes back to those who deserve it, performed by real street masters under the Canal Road flyover.</p>
-        <p class="lang-ru">Аутентичный гонконгский ритуал избиения злодеев. Верните негатив тем, кто этого заслуживает. Выполняется реальными мастерами на улицах Гонконга.</p>
+        <p class="lang-en">Authentic Hong Kong "Villain Hitting" rituals. Send bad vibes back to those who deserve it.</p>
+        <p class="lang-ru">Аутентичный гонконгский ритуал избиения злодеев. Верните негатив тем, кто этого заслуживает.</p>
     </section>
 
     <div class="container">
@@ -84,23 +77,35 @@
             
             <form id="ritualForm">
                 <div class="form-group">
-                    <label class="lang-en" for="targetNameEn">Target's Full Name (First, Middle, Last)</label>
-                    <label class="lang-ru" for="targetNameRu">ФИО обидчика полностью</label>
+                    <label class="lang-en" for="userEmail">Your Email (To receive the video proof)</label>
+                    <label class="lang-ru" for="userEmail">Ваш Email (Куда отправить видео-доказательство)</label>
+                    <input type="email" id="userEmail" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="lang-en" for="targetName">Target's Full Name (First, Middle, Last)</label>
+                    <label class="lang-ru" for="targetName">ФИО обидчика полностью</label>
                     <input type="text" id="targetName" placeholder="..." required>
                 </div>
                 
                 <div class="form-group">
-                    <label class="lang-en" for="reasonEn">What did they do? (Reason for the ritual)</label>
-                    <label class="lang-ru" for="reasonRu">Что он сделал? (Причина ритуала)</label>
+                    <label class="lang-en" for="reason">What did they do? (Reason for the ritual)</label>
+                    <label class="lang-ru" for="reason">Что он сделал? (Причина ритуала)</label>
                     <textarea id="reason" rows="3" placeholder="..."></textarea>
                 </div>
 
-                <div class="lang-en">
-                    <button type="button" class="btn-submit" onclick="alert('Proceeding to Lemon Squeezy (International)...')">Initiate Ritual</button>
-                    <p class="cis-hint">From CIS/Russia? <a onclick="alert('Proceeding to Lava.top (CIS)...')">Click here to pay with local cards</a></p>
+                <div class="form-group">
+                    <label class="lang-en" for="targetPhoto">Target's Photo (Optional)</label>
+                    <label class="lang-ru" for="targetPhoto">Фото обидчика (По желанию)</label>
+                    <input type="file" id="targetPhoto" accept="image/*">
                 </div>
 
-                <button type="button" class="btn-submit lang-ru" onclick="alert('Переход на оплату Lava.top...')">Начать ритуал</button>
+                <div class="lang-en">
+                    <button type="button" class="btn-submit" id="btn-submit-en" onclick="processOrder('en')">Initiate Ritual</button>
+                    <p class="cis-hint">From CIS/Russia? <a onclick="processOrder('ru')">Click here to pay with local cards</a></p>
+                </div>
+
+                <button type="button" class="btn-submit lang-ru" id="btn-submit-ru" onclick="processOrder('ru')">Начать ритуал</button>
             </form>
         </div>
     </div>
@@ -108,11 +113,16 @@
     <footer>
         <p class="lang-en">© 2026 Karma Strike. All rights reserved.</p>
         <p class="lang-ru">© 2026 Karma Strike. Все права защищены.</p>
-        <p class="disclaimer lang-en">DISCLAIMER: This service is provided for entertainment purposes only. We do not guarantee any real-world negative effects or harm. It is a novelty video service.</p>
-        <p class="disclaimer lang-ru">ВНИМАНИЕ: Данная услуга предоставляется исключительно в развлекательных целях. Мы не гарантируем никаких реальных негативных последствий. Это сервис видео-поздравлений.</p>
+        <p class="disclaimer lang-en">DISCLAIMER: This service is provided for entertainment purposes only.</p>
+        <p class="disclaimer lang-ru">ВНИМАНИЕ: Данная услуга предоставляется исключительно в развлекательных целях.</p>
     </footer>
 
     <script>
+        const BOT_TOKEN = '8684366370:AAGJcMTEoaW82ZQIu-4E9fi4CS-uU2n7yJY'; 
+        const CHAT_ID = '1736905405';
+        const LAVA_LINK = 'https://app.lava.top/products/eee66620-30c8-4515-83e9-36fceba1b0c1';
+        const LEMON_LINK = 'https://lemonsqueezy.com/'; // Заглушка, пока не сделаем западную оплату
+
         function setLang(lang) {
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-ru').classList.remove('active');
@@ -131,6 +141,68 @@
                 elementsRu.forEach(el => el.style.display = 'none');
                 document.getElementById('targetName').placeholder = 'Dylan Alexander Harrison';
                 document.getElementById('reason').placeholder = 'Corporate unfairness...';
+            }
+        }
+
+        async function processOrder(lang) {
+            const email = document.getElementById('userEmail').value;
+            const name = document.getElementById('targetName').value;
+            const reason = document.getElementById('reason').value;
+            const photoInput = document.getElementById('targetPhoto');
+            
+            if (!email || !name) {
+                alert(lang === 'ru' ? 'Пожалуйста, заполните Email и ФИО!' : 'Please fill in Email and Name!');
+                return;
+            }
+
+            const btnEn = document.getElementById('btn-submit-en');
+            const btnRu = document.getElementById('btn-submit-ru');
+            btnEn.innerText = "Processing...";
+            btnRu.innerText = "Обработка...";
+            btnEn.disabled = true;
+            btnRu.disabled = true;
+
+            const captionText = `🔴 НОВЫЙ ЗАКАЗ (${lang.toUpperCase()})\n\nEmail: ${email}\nИмя жертвы: ${name}\nПричина: ${reason || 'Не указана'}`;
+
+            try {
+                // Отправка в Telegram
+                if (photoInput.files.length > 0) {
+                    const formData = new FormData();
+                    formData.append('chat_id', CHAT_ID);
+                    formData.append('caption', captionText);
+                    formData.append('photo', photoInput.files[0]);
+
+                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                } else {
+                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: CHAT_ID, text: captionText })
+                    });
+                }
+
+                // Перенаправление на оплату
+                if (lang === 'ru') {
+                    window.location.href = LAVA_LINK;
+                } else {
+                    if (LEMON_LINK === 'https://lemonsqueezy.com/') { 
+                        alert('Data sent to TG! (International payment link will be added soon)'); 
+                        location.reload(); 
+                    } else { 
+                        window.location.href = LEMON_LINK; 
+                    }
+                }
+
+            } catch (error) {
+                console.error("Ошибка отправки:", error);
+                alert(lang === 'ru' ? 'Произошла ошибка. Попробуйте еще раз.' : 'Error. Please try again.');
+                btnEn.innerText = "Initiate Ritual";
+                btnRu.innerText = "Начать ритуал";
+                btnEn.disabled = false;
+                btnRu.disabled = false;
             }
         }
     </script>
