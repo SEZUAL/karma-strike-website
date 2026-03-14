@@ -118,7 +118,6 @@
     </footer>
 
     <script>
-        // Никаких токенов здесь больше нет! Всё безопасно.
         const LAVA_LINK = 'https://app.lava.top/products/eee66620-30c8-4515-83e9-36fceba1b0c1';
         const LEMON_LINK = 'https://lemonsqueezy.com/'; 
 
@@ -147,9 +146,16 @@
             const email = document.getElementById('userEmail').value;
             const name = document.getElementById('targetName').value;
             const reason = document.getElementById('reason').value;
+            const photoInput = document.getElementById('targetPhoto');
             
             if (!email || !name) {
                 alert(lang === 'ru' ? 'Пожалуйста, заполните Email и ФИО!' : 'Please fill in Email and Name!');
+                return;
+            }
+
+            // Проверка размера файла (Vercel пропускает не больше 4.5 МБ)
+            if (photoInput.files.length > 0 && photoInput.files[0].size > 3 * 1024 * 1024) {
+                alert(lang === 'ru' ? 'Фото слишком большое! Максимальный размер 3 МБ.' : 'Photo is too large! Max size is 3 MB.');
                 return;
             }
 
@@ -160,15 +166,25 @@
             btnEn.disabled = true;
             btnRu.disabled = true;
 
+            // Превращаем фото в специальный код (Base64), если оно есть
+            let photoBase64 = null;
+            if (photoInput.files.length > 0) {
+                const file = photoInput.files[0];
+                photoBase64 = await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.readAsDataURL(file);
+                });
+            }
+
             try {
-                // Отправляем данные на наш скрытый сервер Vercel
+                // Отправляем данные на наш сервер
                 await fetch('/api/telegram', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, name, reason, lang })
+                    body: JSON.stringify({ email, name, reason, lang, photoBase64 })
                 });
 
-                // Перенаправление на оплату
                 if (lang === 'ru') {
                     window.location.href = LAVA_LINK;
                 } else {
