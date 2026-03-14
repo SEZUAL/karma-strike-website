@@ -118,10 +118,9 @@
     </footer>
 
     <script>
-        const BOT_TOKEN = '8684366370:AAGJcMTEoaW82ZQIu-4E9fi4CS-uU2n7yJY'; 
-        const CHAT_ID = '1736905405';
+        // Никаких токенов здесь больше нет! Всё безопасно.
         const LAVA_LINK = 'https://app.lava.top/products/eee66620-30c8-4515-83e9-36fceba1b0c1';
-        const LEMON_LINK = 'https://lemonsqueezy.com/';
+        const LEMON_LINK = 'https://lemonsqueezy.com/'; 
 
         function setLang(lang) {
             document.getElementById('btn-en').classList.remove('active');
@@ -148,7 +147,6 @@
             const email = document.getElementById('userEmail').value;
             const name = document.getElementById('targetName').value;
             const reason = document.getElementById('reason').value;
-            const photoInput = document.getElementById('targetPhoto');
             
             if (!email || !name) {
                 alert(lang === 'ru' ? 'Пожалуйста, заполните Email и ФИО!' : 'Please fill in Email and Name!');
@@ -162,32 +160,20 @@
             btnEn.disabled = true;
             btnRu.disabled = true;
 
-            const captionText = `🔴 НОВЫЙ ЗАКАЗ (${lang.toUpperCase()})\n\nEmail: ${email}\nИмя жертвы: ${name}\nПричина: ${reason || 'Не указана'}`;
-
             try {
-                if (photoInput.files.length > 0) {
-                    const formData = new FormData();
-                    formData.append('chat_id', CHAT_ID);
-                    formData.append('caption', captionText);
-                    formData.append('photo', photoInput.files[0]);
+                // Отправляем данные на наш скрытый сервер Vercel
+                await fetch('/api/telegram', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, name, reason, lang })
+                });
 
-                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-                        method: 'POST',
-                        body: formData
-                    });
-                } else {
-                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: CHAT_ID, text: captionText })
-                    });
-                }
-
+                // Перенаправление на оплату
                 if (lang === 'ru') {
                     window.location.href = LAVA_LINK;
                 } else {
                     if (LEMON_LINK === 'https://lemonsqueezy.com/') { 
-                        alert('Data sent to TG! (International payment link will be added soon)'); 
+                        alert('Order created! (International payment link will be added soon)'); 
                         location.reload(); 
                     } else { 
                         window.location.href = LEMON_LINK; 
