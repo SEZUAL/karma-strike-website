@@ -3,46 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karma Strike | Villain Hitting Service</title>
+    <title>Karma Strike | Hong Kong Ritual Video Service</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap');
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; line-height: 1.6; }
-        h1, h2 { font-family: 'Cinzel', serif; text-align: center; }
-        
-        header { display: flex; justify-content: flex-end; padding: 20px; background: #000; }
-        .lang-btn { background: none; border: 1px solid #444; color: #fff; padding: 5px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; margin-left: 10px; transition: 0.3s; }
-        .lang-btn.active { background: #ff003c; border-color: #ff003c; }
+        h1, h2, h3 { font-family: 'Cinzel', serif; text-align: center; }
 
-        .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at center, #2a0808 0%, #0a0a0a 100%); border-bottom: 2px solid #ff003c; box-shadow: 0 0 20px rgba(255, 0, 60, 0.2); }
-        .hero h1 { font-size: 3.5rem; color: #ff003c; text-shadow: 0 0 10px #ff003c; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; color: #cccccc; max-width: 600px; margin: 0 auto; }
+        header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            background: #000;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+        .lang-btn {
+            background: none;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
 
-        .video-section { text-align: center; margin-bottom: 60px; }
-        .video-grid { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
-        .video-placeholder { background: #151515; border: 1px dashed #ff003c; width: 200px; height: 350px; display: flex; align-items: center; justify-content: center; color: #555; border-radius: 8px; font-size: 0.9rem; }
+        .lang-btn.active {
+            background: #ff003c;
+            border-color: #ff003c;
+        }
 
-        .order-section { background: #111; padding: 40px; border-radius: 12px; border: 1px solid #ff003c; box-shadow: 0 0 15px rgba(255, 0, 60, 0.1); }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #aaa; }
-        input[type="text"], input[type="email"], input[type="file"], textarea { width: 100%; padding: 15px; background: #000; border: 1px solid #444; color: #fff; border-radius: 6px; font-family: inherit; }
-        input:focus, textarea:focus { outline: none; border-color: #ff003c; }
-        
-        .btn-submit { display: block; width: 100%; padding: 18px; background: #ff003c; color: #fff; border: none; border-radius: 6px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; text-transform: uppercase; margin-top: 20px;}
-        .btn-submit:hover { background: #d40032; box-shadow: 0 0 15px rgba(255, 0, 60, 0.5); }
-        .btn-submit:disabled { background: #555; cursor: not-allowed; }
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #2a0808 0%, #0a0a0a 100%);
+            border-bottom: 2px solid #ff003c;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+        }
 
-        .cis-hint { text-align: center; margin-top: 15px; font-size: 0.85rem; color: #888; }
-        .cis-hint a { color: #ff003c; text-decoration: none; font-weight: bold; cursor: pointer; }
-        .cis-hint a:hover { text-decoration: underline; }
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #ff003c;
+            text-shadow: 0 0 10px #ff003c;
+            margin-bottom: 20px;
+        }
 
-        footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.85rem; border-top: 1px solid #222; margin-top: 50px; }
-        .disclaimer { color: #888; margin-top: 10px; font-style: italic; }
+        .hero p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            max-width: 760px;
+            margin: 0 auto;
+        }
 
-        .lang-ru { display: none; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .info-card,
+        .order-section,
+        .proof-card {
+            background: #111;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #ff003c;
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .info-card h2,
+        .order-section h2,
+        .proof-card h2 {
+            margin-bottom: 20px;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 14px;
+            color: #d0d0d0;
+            font-size: 0.98rem;
+        }
+
+        .info-list p strong {
+            color: #fff;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .video-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .video-placeholder {
+            background: #151515;
+            border: 1px dashed #ff003c;
+            width: 200px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #aaa;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff003c;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #ff003c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            background: #d40032;
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+        }
+
+        .btn-submit:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+        .cis-hint {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .cis-hint a {
+            color: #ff003c;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cis-hint a:hover {
+            text-decoration: underline;
+        }
+
+        .small-note {
+            margin-top: 18px;
+            color: #9f9f9f;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+            margin-top: 50px;
+        }
+
+        .disclaimer {
+            color: #888;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .lang-ru {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .order-section,
+            .info-card,
+            .proof-card {
+                padding: 22px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -55,71 +249,103 @@
     <section class="hero">
         <h1 class="lang-en">Karma Strike</h1>
         <h1 class="lang-ru">Karma Strike</h1>
-        
-        <p class="lang-en">Authentic Hong Kong "Villain Hitting" rituals. Send bad vibes back to those who deserve it.</p>
-        <p class="lang-ru">Аутентичный гонконгский ритуал избиения злодеев. Верните негатив тем, кто этого заслуживает.</p>
+
+        <p class="lang-en">Traditional Hong Kong villain-hitting ritual performed on your behalf. Cultural and symbolic release ritual with video proof.</p>
+        <p class="lang-ru">Традиционный гонконгский ритуал, проводимый от вашего имени. Культурный и символический ритуал освобождения от негатива с видео-подтверждением.</p>
     </section>
 
     <div class="container">
-        
-        <div class="video-section">
-            <h2 class="lang-en">Real Rituals, Real Proof</h2>
+
+        <div class="info-card">
+            <h2 class="lang-en">How It Works</h2>
+            <h2 class="lang-ru">Как это работает</h2>
+
+            <div class="info-list">
+                <p class="lang-en"><strong>1.</strong> Fill in the form with the target’s name and details.</p>
+                <p class="lang-ru"><strong>1.</strong> Заполните форму: имя цели и детали заказа.</p>
+
+                <p class="lang-en"><strong>2.</strong> Complete payment using the available payment option.</p>
+                <p class="lang-ru"><strong>2.</strong> Оплатите заказ удобным способом.</p>
+
+                <p class="lang-en"><strong>3.</strong> The ritual is arranged and recorded for your order.</p>
+                <p class="lang-ru"><strong>3.</strong> Ритуал организуется и записывается под ваш заказ.</p>
+
+                <p class="lang-en"><strong>4.</strong> You receive the ritual video after completion.</p>
+                <p class="lang-ru"><strong>4.</strong> После выполнения вы получаете видео ритуала.</p>
+            </div>
+        </div>
+
+        <div class="proof-card video-section">
+            <h2 class="lang-en">Real Rituals, Real Video Proof</h2>
             <h2 class="lang-ru">Реальные ритуалы, реальные видео</h2>
+
             <div class="video-grid">
-                <div class="video-placeholder">Video 1<br>(Kirill)</div>
-                <div class="video-placeholder">Video 2<br>(Dylan)</div>
+                <div class="video-placeholder">Video 1<br>(Sample)</div>
+                <div class="video-placeholder">Video 2<br>(Sample)</div>
             </div>
         </div>
 
         <div class="order-section">
             <h2 class="lang-en" style="margin-bottom: 30px;">Order The Ritual ($24.99)</h2>
             <h2 class="lang-ru" style="margin-bottom: 30px;">Заказать ритуал (2500 ₽)</h2>
-            
+
             <form id="ritualForm">
                 <div class="form-group">
-                    <label class="lang-en" for="userEmail">Your Email (Please use the same email as for payment)</label>
-                    <label class="lang-ru" for="userEmail">Ваш Email (Пожалуйста, укажите тот же email, что и при оплате)</label>
+                    <label class="lang-en" for="userEmail">Your Email (Use the same email as for payment)</label>
+                    <label class="lang-ru" for="userEmail">Ваш Email (укажите тот же email, что и при оплате)</label>
                     <input type="email" id="userEmail" placeholder="you@example.com" required>
                 </div>
 
                 <div class="form-group">
-                    <label class="lang-en" for="targetName">Target's Full Name (First, Middle, Last)</label>
-                    <label class="lang-ru" for="targetName">ФИО обидчика полностью</label>
+                    <label class="lang-en" for="targetName">Target's Full Name</label>
+                    <label class="lang-ru" for="targetName">Полное имя цели</label>
                     <input type="text" id="targetName" placeholder="..." required>
                 </div>
-                
+
                 <div class="form-group">
-                    <label class="lang-en" for="reason">What did they do? (Reason for the ritual)</label>
-                    <label class="lang-ru" for="reason">Что он сделал? (Причина ритуала)</label>
+                    <label class="lang-en" for="reason">Reason for the ritual</label>
+                    <label class="lang-ru" for="reason">Причина ритуала</label>
                     <textarea id="reason" rows="3" placeholder="..."></textarea>
                 </div>
 
                 <div class="form-group">
                     <label class="lang-en" for="targetPhoto">Target's Photo (Optional)</label>
-                    <label class="lang-ru" for="targetPhoto">Фото обидчика (По желанию)</label>
+                    <label class="lang-ru" for="targetPhoto">Фото цели (необязательно)</label>
                     <input type="file" id="targetPhoto" accept="image/*">
                 </div>
 
                 <div class="lang-en">
-                    <button type="button" class="btn-submit" id="btn-submit-en" onclick="processOrder('en')">Initiate Ritual</button>
+                    <button type="button" class="btn-submit" id="btn-submit-en" onclick="processOrder('en')">Submit Order</button>
                     <p class="cis-hint">From CIS/Russia? <a onclick="processOrder('ru')">Click here to pay with local cards</a></p>
                 </div>
 
-                <button type="button" class="btn-submit lang-ru" id="btn-submit-ru" onclick="processOrder('ru')">Начать ритуал</button>
+                <button type="button" class="btn-submit lang-ru" id="btn-submit-ru" onclick="processOrder('ru')">Отправить заказ</button>
             </form>
+
+            <div class="small-note">
+                <p class="lang-en"><strong>Delivery:</strong> Video is usually delivered within 2–7 days after confirmed payment.</p>
+                <p class="lang-ru"><strong>Срок:</strong> Видео обычно отправляется в течение 2–7 дней после подтвержденной оплаты.</p>
+
+                <p class="lang-en"><strong>Refunds:</strong> Refunds are available only before the order is passed to the ritual performer. No refunds after the ritual has been completed.</p>
+                <p class="lang-ru"><strong>Возврат:</strong> Возврат возможен только до передачи заказа исполнителю. После выполнения ритуала возврат не производится.</p>
+
+                <p class="lang-en"><strong>Privacy:</strong> Submitted information is used only to process your order and communicate with the ritual performer.</p>
+                <p class="lang-ru"><strong>Конфиденциальность:</strong> Данные используются только для обработки заказа и передачи информации исполнителю ритуала.</p>
+            </div>
         </div>
     </div>
 
     <footer>
         <p class="lang-en">© 2026 Karma Strike. All rights reserved.</p>
         <p class="lang-ru">© 2026 Karma Strike. Все права защищены.</p>
-        <p class="disclaimer lang-en">DISCLAIMER: This service is provided for entertainment purposes only.</p>
-        <p class="disclaimer lang-ru">ВНИМАНИЕ: Данная услуга предоставляется исключительно в развлекательных целях.</p>
+
+        <p class="disclaimer lang-en">DISCLAIMER: This service is provided for cultural, symbolic, and entertainment purposes only.</p>
+        <p class="disclaimer lang-ru">ВНИМАНИЕ: Данная услуга предоставляется исключительно в культурных, символических и развлекательных целях.</p>
     </footer>
 
     <script>
         const LAVA_LINK = 'https://app.lava.top/products/eee66620-30c8-4515-83e9-36fceba1b0c1';
-        const LEMON_LINK = 'https://lemonsqueezy.com/'; 
+        const LEMON_LINK = 'https://lemonsqueezy.com/';
 
         function setLang(lang) {
             document.getElementById('btn-en').classList.remove('active');
@@ -133,41 +359,46 @@
                 elementsEn.forEach(el => el.style.display = 'none');
                 elementsRu.forEach(el => el.style.display = 'block');
                 document.getElementById('targetName').placeholder = 'Иванов Иван Иванович';
-                document.getElementById('reason').placeholder = 'Токсичное поведение на работе...';
+                document.getElementById('reason').placeholder = 'Конфликт, предательство, токсичное поведение...';
             } else {
                 elementsEn.forEach(el => el.style.display = 'block');
                 elementsRu.forEach(el => el.style.display = 'none');
                 document.getElementById('targetName').placeholder = 'Dylan Alexander Harrison';
-                document.getElementById('reason').placeholder = 'Corporate unfairness...';
+                document.getElementById('reason').placeholder = 'Conflict, betrayal, toxic behavior...';
             }
         }
 
         async function processOrder(lang) {
-            const email = document.getElementById('userEmail').value;
-            const name = document.getElementById('targetName').value;
-            const reason = document.getElementById('reason').value;
+            const email = document.getElementById('userEmail').value.trim();
+            const name = document.getElementById('targetName').value.trim();
+            const reason = document.getElementById('reason').value.trim();
             const photoInput = document.getElementById('targetPhoto');
-            
+
             if (!email || !name) {
-                alert(lang === 'ru' ? 'Пожалуйста, заполните Email и ФИО!' : 'Please fill in Email and Name!');
+                alert(lang === 'ru' ? 'Пожалуйста, заполните Email и имя цели' : 'Please fill in Email and target name');
                 return;
             }
 
-            // Проверка размера файла (Vercel пропускает не больше 4.5 МБ)
             if (photoInput.files.length > 0 && photoInput.files[0].size > 3 * 1024 * 1024) {
-                alert(lang === 'ru' ? 'Фото слишком большое! Максимальный размер 3 МБ.' : 'Photo is too large! Max size is 3 MB.');
+                alert(lang === 'ru' ? 'Фото слишком большое. Максимум 3 МБ.' : 'Photo is too large. Max size is 3 MB.');
                 return;
             }
 
             const btnEn = document.getElementById('btn-submit-en');
             const btnRu = document.getElementById('btn-submit-ru');
-            btnEn.innerText = "Processing...";
-            btnRu.innerText = "Обработка...";
-            btnEn.disabled = true;
-            btnRu.disabled = true;
 
-            // Превращаем фото в специальный код (Base64), если оно есть
+            if (btnEn) {
+                btnEn.innerText = "Processing...";
+                btnEn.disabled = true;
+            }
+
+            if (btnRu) {
+                btnRu.innerText = "Обработка...";
+                btnRu.disabled = true;
+            }
+
             let photoBase64 = null;
+
             if (photoInput.files.length > 0) {
                 const file = photoInput.files[0];
                 photoBase64 = await new Promise((resolve) => {
@@ -178,7 +409,6 @@
             }
 
             try {
-                // Отправляем данные на наш сервер
                 await fetch('/api/telegram', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -188,23 +418,31 @@
                 if (lang === 'ru') {
                     window.location.href = LAVA_LINK;
                 } else {
-                    if (LEMON_LINK === 'https://lemonsqueezy.com/') { 
-                        alert('Order created! (International payment link will be added soon)'); 
-                        location.reload(); 
-                    } else { 
-                        window.location.href = LEMON_LINK; 
+                    if (LEMON_LINK === 'https://lemonsqueezy.com/') {
+                        alert('Order created. International payment link will be added soon.');
+                        location.reload();
+                    } else {
+                        window.location.href = LEMON_LINK;
                     }
                 }
 
             } catch (error) {
-                console.error("Ошибка отправки:", error);
-                alert(lang === 'ru' ? 'Произошла ошибка. Попробуйте еще раз.' : 'Error. Please try again.');
-                btnEn.innerText = "Initiate Ritual";
-                btnRu.innerText = "Начать ритуал";
-                btnEn.disabled = false;
-                btnRu.disabled = false;
+                console.error("Send error:", error);
+                alert(lang === 'ru' ? 'Произошла ошибка. Попробуйте еще раз.' : 'An error occurred. Please try again.');
+
+                if (btnEn) {
+                    btnEn.innerText = "Submit Order";
+                    btnEn.disabled = false;
+                }
+
+                if (btnRu) {
+                    btnRu.innerText = "Отправить заказ";
+                    btnRu.disabled = false;
+                }
             }
         }
+
+        setLang('en');
     </script>
 </body>
 </html>
