@@ -315,7 +315,7 @@
                 </div>
 
                 <div class="lang-en">
-                    <button type="button" class="btn-submit" id="btn-submit-en" onclick="processOrder('en')">Submit Order</button>
+                    <button type="button" class="btn-submit" id="btn-submit-en" onclick="processOrder('en')">Submit Order & Pay</button>
                     <p class="cis-hint">From CIS/Russia? <a onclick="processOrder('ru')">Click here to pay with local cards</a></p>
                 </div>
 
@@ -345,7 +345,7 @@
 
     <script>
         const LAVA_LINK = 'https://app.lava.top/products/001a94a5-1b73-4982-96cc-680b3a68dfd5';
-        const LEMON_LINK = 'https://lemonsqueezy.com/';
+        const GUMROAD_LINK = 'https://englishforimmigrants.gumroad.com/l/villain-hit?wanted=true';
 
         function setLang(lang) {
             document.getElementById('btn-en').classList.remove('active');
@@ -418,12 +418,7 @@
                 if (lang === 'ru') {
                     window.location.href = LAVA_LINK;
                 } else {
-                    if (LEMON_LINK === 'https://lemonsqueezy.com/') {
-                        alert('Order created. International payment link will be added soon.');
-                        location.reload();
-                    } else {
-                        window.location.href = LEMON_LINK;
-                    }
+                    window.location.href = GUMROAD_LINK;
                 }
 
             } catch (error) {
@@ -431,7 +426,7 @@
                 alert(lang === 'ru' ? 'Произошла ошибка. Попробуйте еще раз.' : 'An error occurred. Please try again.');
 
                 if (btnEn) {
-                    btnEn.innerText = "Submit Order";
+                    btnEn.innerText = "Submit Order & Pay";
                     btnEn.disabled = false;
                 }
 
