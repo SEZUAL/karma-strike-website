@@ -117,10 +117,10 @@
             position: relative;
         }
 
-        .video-wrapper iframe {
+        .video-wrapper video {
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
         }
 
         .form-group {
@@ -287,28 +287,19 @@
 
             <div class="video-grid">
                 <div class="video-wrapper">
-                    <iframe
-                        src="https://www.youtube.com/embed/zvfrvJ8mNEA?loop=1&playlist=zvfrvJ8mNEA&rel=0"
-                        title="Villain Hitting Ritual 1"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
+                    <video autoplay muted loop playsinline>
+                        <source src="/videos/video1.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="video-wrapper">
-                    <iframe
-                        src="https://www.youtube.com/embed/vVMoGj7Wkt4?loop=1&playlist=vVMoGj7Wkt4&rel=0"
-                        title="Villain Hitting Ritual 2"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
+                    <video autoplay muted loop playsinline>
+                        <source src="/videos/video2.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="video-wrapper">
-                    <iframe
-                        src="https://www.youtube.com/embed/8C5gwiiyceU?loop=1&playlist=8C5gwiiyceU&rel=0"
-                        title="Villain Hitting Ritual 3"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
+                    <video autoplay muted loop playsinline>
+                        <source src="/videos/video3.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
