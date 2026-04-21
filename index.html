@@ -107,19 +107,20 @@
             flex-wrap: wrap;
         }
 
-        .video-placeholder {
-            background: #151515;
-            border: 1px dashed #ff003c;
+        .video-wrapper {
             width: 200px;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
+            height: 356px;
             border-radius: 8px;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 10px;
+            overflow: hidden;
+            border: 1px solid #ff003c;
+            background: #151515;
+            position: relative;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .form-group {
@@ -236,6 +237,11 @@
             .proof-card {
                 padding: 22px;
             }
+
+            .video-wrapper {
+                width: 160px;
+                height: 284px;
+            }
         }
     </style>
 </head>
@@ -261,7 +267,7 @@
             <h2 class="lang-ru">Как это работает</h2>
 
             <div class="info-list">
-                <p class="lang-en"><strong>1.</strong> Fill in the form with the target’s name and details.</p>
+                <p class="lang-en"><strong>1.</strong> Fill in the form with the target's name and details.</p>
                 <p class="lang-ru"><strong>1.</strong> Заполните форму: имя цели и детали заказа.</p>
 
                 <p class="lang-en"><strong>2.</strong> Complete payment using the available payment option.</p>
@@ -280,8 +286,30 @@
             <h2 class="lang-ru">Реальные ритуалы, реальные видео</h2>
 
             <div class="video-grid">
-                <div class="video-placeholder">Video 1<br>(Sample)</div>
-                <div class="video-placeholder">Video 2<br>(Sample)</div>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/zvfrvJ8mNEA?loop=1&playlist=zvfrvJ8mNEA&rel=0"
+                        title="Villain Hitting Ritual 1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/vVMoGj7Wkt4?loop=1&playlist=vVMoGj7Wkt4&rel=0"
+                        title="Villain Hitting Ritual 2"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/8C5gwiiyceU?loop=1&playlist=8C5gwiiyceU&rel=0"
+                        title="Villain Hitting Ritual 3"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
             </div>
         </div>
 
@@ -323,8 +351,8 @@
             </form>
 
             <div class="small-note">
-                <p class="lang-en"><strong>Delivery:</strong> Video is usually delivered within 1–2 days after confirmed payment.</p>
-                <p class="lang-ru"><strong>Срок:</strong> Видео обычно отправляется в течение 1–2 дней после подтвержденной оплаты.</p>
+                <p class="lang-en"><strong>Delivery:</strong> Video is usually delivered within 2–7 days after confirmed payment.</p>
+                <p class="lang-ru"><strong>Срок:</strong> Видео обычно отправляется в течение 2–7 дней после подтвержденной оплаты.</p>
 
                 <p class="lang-en"><strong>Refunds:</strong> Refunds are available only before the order is passed to the ritual performer. No refunds after the ritual has been completed.</p>
                 <p class="lang-ru"><strong>Возврат:</strong> Возврат возможен только до передачи заказа исполнителю. После выполнения ритуала возврат не производится.</p>
