@@ -239,6 +239,21 @@
             background: var(--surface);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('/videos/collage.jpg') center / cover;
+            opacity: 0.35;
+        }
+
+        .video-section > * {
+            position: relative;
+            z-index: 1;
         }
 
         .video-grid {
