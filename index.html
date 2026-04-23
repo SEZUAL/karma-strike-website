@@ -525,17 +525,17 @@
 
             <div class="video-grid">
                 <div class="video-card">
-                    <video autoplay muted loop playsinline>
+                    <video autoplay muted loop playsinline preload="auto" poster="/videos/poster1.jpg">
                         <source src="/videos/video1.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-card">
-                    <video autoplay muted loop playsinline>
+                    <video autoplay muted loop playsinline preload="auto" poster="/videos/poster2.jpg">
                         <source src="/videos/video2.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-card">
-                    <video autoplay muted loop playsinline>
+                    <video autoplay muted loop playsinline preload="auto" poster="/videos/poster3.jpg">
                         <source src="/videos/video3.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -681,6 +681,26 @@
         }
 
         setLang('en');
+
+        // Force autoplay on all videos
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('video').forEach(function(video) {
+                video.muted = true;
+                video.play().catch(function() {});
+            });
+        });
+
+        // Also try on scroll (some browsers need user interaction first)
+        var videoPlayed = false;
+        window.addEventListener('scroll', function() {
+            if (!videoPlayed) {
+                document.querySelectorAll('video').forEach(function(video) {
+                    video.muted = true;
+                    video.play().catch(function() {});
+                });
+                videoPlayed = true;
+            }
+        });
     </script>
-</body> 
+</body>
 </html>
