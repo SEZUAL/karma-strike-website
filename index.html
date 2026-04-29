@@ -408,6 +408,62 @@
         body.en .lang-ru { display: none !important; }
         body.ru .lang-en { display: none !important; }
 
+        /* ---- FAQ ---- */
+        .faq-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 70px 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-question:hover { color: var(--accent); }
+
+        .faq-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+            color: var(--text-muted);
+        }
+
+        .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 0 20px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
         @media (max-width: 768px) {
             nav { padding: 14px 20px; }
             .hero { padding: 50px 20px 40px; }
@@ -540,6 +596,86 @@
                         <source src="/videos/video3.mp4" type="video/mp4">
                     </video>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <h2 class="section-title lang-en">Frequently Asked Questions</h2>
+        <h2 class="section-title lang-ru">Частые вопросы</h2>
+        <p class="section-sub lang-en">Everything you need to know before ordering.</p>
+        <p class="section-sub lang-ru">Всё, что нужно знать перед заказом.</p>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span class="lang-en">Is this a real ritual?</span>
+                <span class="lang-ru">Это настоящий ритуал?</span>
+                <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p class="lang-en">Yes. Villain hitting (打小人) is a real traditional practice in Hong Kong that has been performed for decades at Causeway Bay. A real performer carries out the ritual on your behalf.</p>
+                <p class="lang-ru">Да. «Побить злодея» (打小人) — это реальная традиционная практика в Гонконге, которую проводят десятилетиями в Козуэй-Бэй. Настоящий исполнитель проводит ритуал от вашего имени.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span class="lang-en">How long does it take?</span>
+                <span class="lang-ru">Сколько времени это занимает?</span>
+                <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p class="lang-en">You will receive proof of the completed ritual within 2–7 days after your payment is confirmed.</p>
+                <p class="lang-ru">Вы получите подтверждение выполненного ритуала в течение 2–7 дней после подтверждения оплаты.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span class="lang-en">Is my order anonymous?</span>
+                <span class="lang-ru">Мой заказ анонимный?</span>
+                <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p class="lang-en">Absolutely. Your personal information is used only to process the order and deliver your proof. The target will never know who ordered the ritual.</p>
+                <p class="lang-ru">Абсолютно. Ваши данные используются только для обработки заказа и отправки подтверждения. Цель никогда не узнает, кто заказал ритуал.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span class="lang-en">Can I get a refund?</span>
+                <span class="lang-ru">Можно ли вернуть деньги?</span>
+                <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p class="lang-en">Refunds are available only before the order is passed to the performer. Once the ritual has been completed, no refunds can be issued.</p>
+                <p class="lang-ru">Возврат возможен только до передачи заказа исполнителю. После выполнения ритуала возврат не производится.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span class="lang-en">What do I need to provide?</span>
+                <span class="lang-ru">Что мне нужно указать?</span>
+                <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p class="lang-en">Just the target's full name and an optional reason. You can also upload a photo, but it's not required.</p>
+                <p class="lang-ru">Только полное имя цели и по желанию причину. Также можно загрузить фото, но это необязательно.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span class="lang-en">Does this actually work?</span>
+                <span class="lang-ru">Это реально работает?</span>
+                <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-answer">
+                <p class="lang-en">This service is provided for cultural, symbolic, and entertainment purposes. Whether you believe in its power is entirely up to you — either way, it's deeply satisfying to watch.</p>
+                <p class="lang-ru">Услуга предоставляется в культурных, символических и развлекательных целях. Верить в её силу — ваш выбор. В любом случае, смотреть на это крайне приятно.</p>
             </div>
         </div>
     </section>
