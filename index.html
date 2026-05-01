@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karma Strike | Hong Kong Villain-Hitting Ritual Service</title>
+    <title>Karma Strike | Hong Kong Villain-Hitting Ritual</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&display=swap');
 
         :root {
-            --bg: #0b0b0b;
-            --surface: #141414;
-            --surface-2: #1a1a1a;
-            --border: #2a2a2a;
+            --bg: #0d0d0d;
+            --surface: #151515;
+            --border: #222;
             --accent: #e63946;
             --accent-hover: #c62f3b;
-            --text: #f0f0f0;
+            --yellow: #ffd60a;
+            --green: #2ecc71;
+            --text: #f5f5f5;
             --text-muted: #999;
-            --text-dim: #666;
-            --radius: 10px;
+            --text-dim: #555;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,18 +26,25 @@
             background: var(--bg);
             color: var(--text);
             font-family: 'DM Sans', sans-serif;
-            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ---- TOP BAR ---- */
-        .topbar {
+        /* ---- PROMO BAR ---- */
+        .promo-bar {
             background: var(--accent);
             text-align: center;
             padding: 10px 20px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 700;
             letter-spacing: 0.5px;
+        }
+
+        .promo-bar .code {
+            background: rgba(0,0,0,0.25);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
         }
 
         /* ---- NAV ---- */
@@ -45,7 +52,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 40px;
+            padding: 16px 40px;
             background: var(--bg);
             border-bottom: 1px solid var(--border);
             position: sticky;
@@ -54,30 +61,76 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .logo span { color: var(--accent); }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--yellow);
+            border-bottom-color: var(--yellow);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover { background: var(--accent-hover); }
+
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
         .lang-btn {
             background: transparent;
             border: 1px solid var(--border);
             color: var(--text-muted);
-            padding: 6px 14px;
+            padding: 6px 12px;
             cursor: pointer;
-            border-radius: 6px;
-            font-size: 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 700;
-            font-family: inherit;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
             transition: all 0.2s;
         }
 
@@ -90,341 +143,321 @@
         /* ---- HERO ---- */
         .hero {
             text-align: center;
-            padding: 80px 20px 60px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(230, 57, 70, 0.15);
-            color: var(--accent);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 em {
-            color: var(--accent);
-            font-style: normal;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 580px;
-            margin: 0 auto 32px;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            padding: 16px 40px;
-            border-radius: 8px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-        }
-
-        .hero-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 24px rgba(230, 57, 70, 0.3);
-        }
-
-        /* ---- TRUST BAR ---- */
-        .trust-bar {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 30px 20px;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .trust-icon {
-            width: 20px;
-            height: 20px;
-            fill: var(--accent);
-        }
-
-        /* ---- SECTION SHARED ---- */
-        .section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 70px 20px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .section-sub {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 40px;
-        }
-
-        /* ---- HOW IT WORKS ---- */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .step {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px 20px;
-            text-align: center;
-            transition: border-color 0.2s;
-        }
-
-        .step:hover { border-color: var(--accent); }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: var(--accent);
-            color: #fff;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 14px;
-        }
-
-        .step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
-        .step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
-
-        /* ---- VIDEO PROOF ---- */
-        .video-section {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            padding: 80px 20px 50px;
             position: relative;
             overflow: hidden;
         }
 
-        .video-section::before {
+        .hero::before {
             content: '';
             position: absolute;
             inset: 0;
             background: url('/videos/collage.jpg') center / cover;
-            opacity: 0.35;
+            opacity: 0.12;
         }
 
-        .video-section > * {
+        .hero > * {
             position: relative;
             z-index: 1;
         }
 
-        .video-grid {
+        .hero-promo {
+            display: inline-block;
+            background: rgba(230, 57, 70, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .hero-promo .code {
+            color: var(--yellow);
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 .accent {
+            color: var(--yellow);
+            display: block;
+            font-style: italic;
+        }
+
+        .hero .subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--yellow);
+            font-style: italic;
+            margin-bottom: 36px;
+        }
+
+        .hero-buttons {
             display: flex;
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
-        .video-card {
-            width: 200px;
-            height: 356px;
-            border-radius: var(--radius);
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .hero-sub {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .hero-sub strong { color: #fff; }
+
+        .hero-urgency {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 214, 10, 0.1);
+            border: 1px solid rgba(255, 214, 10, 0.3);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--yellow);
+            font-weight: 500;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--yellow);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ---- HOW IT WORKS ---- */
+        .how-section {
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-heading {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading .hl { color: var(--yellow); }
+
+        .section-script {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            color: var(--yellow);
+            margin-bottom: 50px;
+        }
+
+        .steps-row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 0;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            flex-wrap: wrap;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 0 16px;
+            position: relative;
+        }
+
+        .step-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.08);
+            line-height: 1;
+            margin-bottom: 4px;
+            position: relative;
+        }
+
+        .step-num::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .step-arrow {
+            position: absolute;
+            right: -12px;
+            top: 20px;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+        }
+
+        .step-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 16px 0 8px;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ---- REACTIONS / VIDEO ---- */
+        .reactions-section {
+            padding: 80px 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            position: relative;
             overflow: hidden;
-            border: 1px solid var(--border);
-            background: #000;
-            transition: border-color 0.2s;
         }
 
-        .video-card:hover { border-color: var(--accent); }
+        .reactions-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('/videos/collage.jpg') center / cover;
+            opacity: 0.15;
+        }
 
-        .video-card video {
+        .reactions-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-scroll {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .vid-card {
+            width: 190px;
+            height: 340px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            background: #000;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .vid-card:hover {
+            border-color: var(--accent);
+            transform: scale(1.03);
+        }
+
+        .vid-card video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* ---- ORDER FORM ---- */
-        .order-section {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .order-box { max-width: 560px; margin: 0 auto; }
-
-        .price-tag { text-align: center; margin-bottom: 30px; }
-
-        .price-tag .price {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--accent);
-        }
-
-        .price-tag .price-note {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            margin-top: 4px;
-        }
-
-        .form-group { margin-bottom: 18px; }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            color: var(--text);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: var(--text-dim); }
-
-        .btn-order {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: inherit;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s;
-            margin-top: 24px;
-        }
-
-        .btn-order:hover {
-            background: var(--accent-hover);
-            box-shadow: 0 6px 24px rgba(230, 57, 70, 0.3);
-        }
-
-        .btn-order:disabled { background: #444; cursor: not-allowed; box-shadow: none; }
-
-        .cis-hint {
-            text-align: center;
-            margin-top: 14px;
-            font-size: 0.82rem;
-            color: var(--text-dim);
-        }
-
-        .cis-hint a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .cis-hint a:hover { text-decoration: underline; }
-
-        /* ---- FINE PRINT ---- */
-        .fine-print {
-            max-width: 560px;
-            margin: 30px auto 0;
-            display: grid;
-            gap: 12px;
-        }
-
-        .fine-print p { font-size: 0.82rem; color: var(--text-dim); line-height: 1.6; }
-        .fine-print strong { color: var(--text-muted); }
-
-        /* ---- FOOTER ---- */
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        footer p { font-size: 0.8rem; color: var(--text-dim); }
-
-        footer .disclaimer {
-            color: var(--text-dim);
-            font-style: italic;
-            margin-top: 8px;
-            font-size: 0.78rem;
-        }
-
-        body.en .lang-ru { display: none !important; }
-        body.ru .lang-en { display: none !important; }
-
         /* ---- FAQ ---- */
         .faq-section {
+            padding: 80px 20px;
             max-width: 700px;
             margin: 0 auto;
-            padding: 70px 20px;
+            border-top: 1px solid var(--border);
         }
 
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-        }
+        .faq-item { border-bottom: 1px solid var(--border); }
 
         .faq-question {
             width: 100%;
             background: none;
             border: none;
             color: var(--text);
-            font-family: inherit;
+            font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
             font-weight: 600;
             text-align: left;
@@ -447,165 +480,388 @@
 
         .faq-item.open .faq-arrow { transform: rotate(45deg); }
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+
+        .faq-answer p { padding: 0 0 20px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
+
+        .faq-item.open .faq-answer { max-height: 300px; }
+
+        /* ---- ORDER ---- */
+        .order-section {
+            padding: 80px 20px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
         }
 
-        .faq-answer p {
-            padding: 0 0 20px;
+        .order-box {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .price-row {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .price-old {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            text-decoration: line-through;
+            margin-right: 12px;
+        }
+
+        .price-new {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .price-save {
+            display: inline-block;
+            background: var(--yellow);
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-left: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            vertical-align: middle;
+        }
+
+        .price-note {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        .form-group { margin-bottom: 16px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
             color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .faq-item.open .faq-answer {
-            max-height: 300px;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus { outline: none; border-color: var(--accent); }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--text-dim); }
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-order:hover { background: var(--accent-hover); box-shadow: 0 6px 24px rgba(230,57,70,0.3); }
+        .btn-order:disabled { background: #444; cursor: not-allowed; box-shadow: none; }
+
+        .cis-hint { text-align: center; margin-top: 14px; font-size: 0.82rem; color: var(--text-dim); }
+        .cis-hint a { color: var(--accent); text-decoration: none; font-weight: 700; cursor: pointer; }
+        .cis-hint a:hover { text-decoration: underline; }
+
+        .fine-print { max-width: 560px; margin: 30px auto 0; display: grid; gap: 10px; }
+        .fine-print p { font-size: 0.8rem; color: var(--text-dim); line-height: 1.6; }
+        .fine-print strong { color: var(--text-muted); }
+
+        /* ---- FOOTER ---- */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid var(--border);
+        }
+        footer p { font-size: 0.78rem; color: var(--text-dim); }
+        footer .disclaimer { font-style: italic; margin-top: 8px; }
+
+        /* ---- REVIEWS ---- */
+        .reviews-section {
+            padding: 80px 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 24px;
+            text-align: left;
+            transition: border-color 0.2s;
+        }
+
+        .review-card:hover { border-color: var(--accent); }
+
+        .review-stars {
+            color: var(--yellow);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .review-text {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .review-verified {
+            color: var(--green);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .review-type {
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid { grid-template-columns: 1fr; max-width: 500px; }
+        }
+
+        /* ---- LANG ---- */
+        body.en .lang-ru { display: none !important; }
+        body.ru .lang-en { display: none !important; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
         }
 
         @media (max-width: 768px) {
             nav { padding: 14px 20px; }
             .hero { padding: 50px 20px 40px; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-            .steps { grid-template-columns: 1fr 1fr; }
-            .trust-bar { gap: 20px; }
-            .video-card { width: 160px; height: 284px; }
+            .hero h1 { font-size: 3rem; }
+            .hero .subtitle { font-size: 1.3rem; }
+            .section-heading { font-size: 2rem; }
+            .steps-row { gap: 30px; }
+            .step-arrow { display: none; }
+            .vid-card { width: 150px; height: 267px; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .steps { grid-template-columns: 1fr; }
-            .trust-bar { flex-direction: column; align-items: center; gap: 14px; }
+            .hero h1 { font-size: 2.2rem; }
+            .steps-row { flex-direction: column; align-items: center; }
+            .step-item { min-width: unset; width: 100%; max-width: 280px; }
         }
     </style>
 </head>
-<body>
+<body class="en">
 
-    <div class="topbar">
-        <span class="lang-en">100% Anonymous &bull; Real Ritual Performed in Hong Kong &bull; Delivered in 2–7 Days</span>
-        <span class="lang-ru">100% анонимно &bull; Настоящий ритуал в Гонконге &bull; Доставка за 2–7 дней</span>
+    <!-- PROMO BAR -->
+    <div class="promo-bar">
+        <span class="lang-en">25% OFF ALL ORDERS THIS MAY 🔥</span>
+        <span class="lang-ru">СКИДКА 25% НА ВСЕ ЗАКАЗЫ В МАЕ 🔥</span>
     </div>
 
+    <!-- NAV -->
     <nav>
         <div class="logo">KARMA<span>STRIKE</span></div>
+        <div class="nav-links">
+            <a class="nav-link" onclick="scrollTo('how')">
+                <span class="lang-en">HOW IT WORKS</span>
+                <span class="lang-ru">КАК ЭТО РАБОТАЕТ</span>
+            </a>
+            <a class="nav-link" onclick="scrollTo('delivery')">
+                <span class="lang-en">DELIVERY</span>
+                <span class="lang-ru">ДОСТАВКА</span>
+            </a>
+            <a class="nav-link" onclick="scrollTo('reactions')">
+                <span class="lang-en">REACTIONS</span>
+                <span class="lang-ru">РЕАКЦИИ</span>
+            </a>
+            <a class="nav-link" onclick="scrollTo('faq')">
+                <span class="lang-en">FAQ</span>
+                <span class="lang-ru">FAQ</span>
+            </a>
+        </div>
         <div class="nav-right">
             <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
             <button class="lang-btn" onclick="setLang('ru')" id="btn-ru">RU</button>
+            <button class="nav-cta" onclick="scrollTo('order')">
+                <span class="lang-en">ORDER NOW</span>
+                <span class="lang-ru">ЗАКАЗАТЬ</span>
+            </button>
         </div>
     </nav>
 
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-badge lang-en">Traditional Hong Kong Ritual</div>
-        <div class="hero-badge lang-ru">Традиционный ритуал Гонконга</div>
+        <div class="hero-promo lang-en">25% OFF ALL ORDERS THIS MAY</div>
+        <div class="hero-promo lang-ru">СКИДКА 25% НА ВСЕ ЗАКАЗЫ В МАЕ</div>
 
-        <h1 class="lang-en">Put <em>Bad Karma</em> On Someone Who Deserves It</h1>
-        <h1 class="lang-ru">Наведите <em>плохую карму</em> на того, кто это заслужил</h1>
+        <h1 class="lang-en">SEND BAD KARMA<span class="accent">ANONYMOUSLY.</span></h1>
+        <h1 class="lang-ru">ОТПРАВЬТЕ ПЛОХУЮ КАРМУ<span class="accent">АНОНИМНО.</span></h1>
 
-        <p class="lang-en">A real villain-hitting ritual performed on your behalf in Hong Kong. You send the name — we handle the rest.</p>
-        <p class="lang-ru">Настоящий ритуал «побить злодея», выполняемый от вашего имени в Гонконге. Вы отправляете имя — мы делаем остальное.</p>
+        <p class="subtitle lang-en">...they'll never know it was you</p>
+        <p class="subtitle lang-ru">...они никогда не узнают, что это вы</p>
 
-        <button class="hero-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
-            <span class="lang-en">Order Now — $29.99</span>
-            <span class="lang-ru">Заказать — $29.99</span>
-        </button>
-    </section>
-
-    <div class="trust-bar">
-        <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-            <span class="lang-en">100% Anonymous</span>
-            <span class="lang-ru">100% анонимно</span>
+        <div class="hero-buttons">
+            <button class="btn-primary" onclick="scrollTo('order')">
+                <span class="lang-en">ORDER THE RITUAL →</span>
+                <span class="lang-ru">ЗАКАЗАТЬ РИТУАЛ →</span>
+            </button>
+            <button class="btn-secondary" onclick="scrollTo('reactions')">
+                <span class="lang-en">▶ Watch Reactions</span>
+                <span class="lang-ru">▶ Смотреть реакции</span>
+            </button>
         </div>
-        <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span class="lang-en">Real Ritual, Real Performer</span>
-            <span class="lang-ru">Настоящий ритуал</span>
-        </div>
-        <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            <span class="lang-en">Delivered in 2–7 Days</span>
-            <span class="lang-ru">Доставка за 2–7 дней</span>
-        </div>
-        <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
-            <span class="lang-en">Proof Sent to Your Email</span>
-            <span class="lang-ru">Подтверждение на почту</span>
-        </div>
-    </div>
 
-    <section class="section">
-        <h2 class="section-title lang-en">How It Works</h2>
-        <h2 class="section-title lang-ru">Как это работает</h2>
-        <p class="section-sub lang-en">Simple. Anonymous. Satisfying.</p>
-        <p class="section-sub lang-ru">Просто. Анонимно. Удовлетворительно.</p>
+        <p class="hero-sub lang-en">Pick a target. Send the name. <strong>We handle the ritual.</strong></p>
+        <p class="hero-sub lang-ru">Выберите цель. Отправьте имя. <strong>Мы проведём ритуал.</strong></p>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3 class="lang-en">Fill the Form</h3>
-                <h3 class="lang-ru">Заполните форму</h3>
-                <p class="lang-en">Enter the target's name and your reason.</p>
-                <p class="lang-ru">Укажите имя цели и причину.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3 class="lang-en">Pay Securely</h3>
-                <h3 class="lang-ru">Оплатите</h3>
-                <p class="lang-en">Complete payment through our secure checkout.</p>
-                <p class="lang-ru">Оплатите заказ удобным способом.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3 class="lang-en">Ritual Is Performed</h3>
-                <h3 class="lang-ru">Ритуал выполняется</h3>
-                <p class="lang-en">A real performer in Hong Kong carries out the ritual on your behalf.</p>
-                <p class="lang-ru">Настоящий исполнитель в Гонконге проводит ритуал от вашего имени.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3 class="lang-en">Receive Proof</h3>
-                <h3 class="lang-ru">Получите подтверждение</h3>
-                <p class="lang-en">You receive proof that the ritual was successfully completed.</p>
-                <p class="lang-ru">Вы получаете подтверждение успешного завершения ритуала.</p>
-            </div>
+        <div class="hero-urgency">
+            <span class="pulse-dot"></span>
+            <span class="lang-en">Limited ritual slots — lock in your order now</span>
+            <span class="lang-ru">Ограниченное количество слотов — закажите сейчас</span>
         </div>
     </section>
 
-    <section class="video-section">
-        <div class="section" style="padding-bottom: 50px;">
-            <h2 class="section-title lang-en">See the Ritual in Action</h2>
-            <h2 class="section-title lang-ru">Как выглядит ритуал</h2>
-            <p class="section-sub lang-en">Real footage from Hong Kong's Causeway Bay villain-hitting tradition.</p>
-            <p class="section-sub lang-ru">Реальные кадры традиции «побить злодея» из Козуэй-Бэй, Гонконг.</p>
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how">
+        <div class="section-label lang-en">DANGEROUSLY SIMPLE</div>
+        <div class="section-label lang-ru">ОПАСНО ПРОСТО</div>
 
-            <div class="video-grid">
-                <div class="video-card">
-                    <video autoplay muted loop playsinline preload="auto" poster="/videos/poster1.jpg">
-                        <source src="/videos/video1.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-card">
-                    <video autoplay muted loop playsinline preload="auto" poster="/videos/poster2.jpg">
-                        <source src="/videos/video2.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-card">
-                    <video autoplay muted loop playsinline preload="auto" poster="/videos/poster3.jpg">
-                        <source src="/videos/video3.mp4" type="video/mp4">
-                    </video>
-                </div>
+        <h2 class="section-heading lang-en">HOW IT <span class="hl">WORKS</span></h2>
+        <h2 class="section-heading lang-ru">КАК ЭТО <span class="hl">РАБОТАЕТ</span></h2>
+
+        <p class="section-script lang-en">...and how to get away with it</p>
+        <p class="section-script lang-ru">...и как остаться незамеченным</p>
+
+        <div class="steps-row">
+            <div class="step-item">
+                <div class="step-num">01</div>
+                <span class="step-arrow">→</span>
+                <h3 class="step-title lang-en">Name Your Target</h3>
+                <h3 class="step-title lang-ru">Назовите цель</h3>
+                <p class="step-desc lang-en">Fill in their name. Add a reason or photo if you want.</p>
+                <p class="step-desc lang-ru">Укажите имя. Добавьте причину или фото по желанию.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">02</div>
+                <span class="step-arrow">→</span>
+                <h3 class="step-title lang-en">Pay & Confirm</h3>
+                <h3 class="step-title lang-ru">Оплатите</h3>
+                <p class="step-desc lang-en">Secure checkout. 100% anonymous. Zero evidence.</p>
+                <p class="step-desc lang-ru">Безопасная оплата. 100% анонимно. Никаких следов.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">03</div>
+                <span class="step-arrow">→</span>
+                <h3 class="step-title lang-en">We Deploy It</h3>
+                <h3 class="step-title lang-ru">Мы исполняем</h3>
+                <p class="step-desc lang-en">A real performer in Hong Kong carries out the ritual.</p>
+                <p class="step-desc lang-ru">Настоящий исполнитель в Гонконге проводит ритуал.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">04</div>
+                <h3 class="step-title lang-en">Deny Everything</h3>
+                <h3 class="step-title lang-ru">Отрицайте всё</h3>
+                <p class="step-desc lang-en">You get proof it's done. Play dumb. You were never here.</p>
+                <p class="step-desc lang-ru">Вы получите подтверждение. Делайте вид, что ни при чём.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- REACTIONS / VIDEOS -->
+    <section class="reactions-section" id="reactions">
+        <div class="section-label lang-en">THE PROOF IS IN THE RITUAL</div>
+        <div class="section-label lang-ru">ДОКАЗАТЕЛЬСТВО В РИТУАЛЕ</div>
+
+        <h2 class="section-heading lang-en">REAL <span class="hl">RITUALS</span></h2>
+        <h2 class="section-heading lang-ru">РЕАЛЬНЫЕ <span class="hl">РИТУАЛЫ</span></h2>
+
+        <p class="section-script lang-en">...you can't fake this</p>
+        <p class="section-script lang-ru">...это невозможно подделать</p>
+
+        <div class="video-scroll">
+            <div class="vid-card">
+                <video autoplay muted loop playsinline preload="auto" poster="/videos/poster1.jpg">
+                    <source src="/videos/video1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="vid-card">
+                <video autoplay muted loop playsinline preload="auto" poster="/videos/poster2.jpg">
+                    <source src="/videos/video2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="vid-card">
+                <video autoplay muted loop playsinline preload="auto" poster="/videos/poster3.jpg">
+                    <source src="/videos/video3.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section">
-        <h2 class="section-title lang-en">Frequently Asked Questions</h2>
-        <h2 class="section-title lang-ru">Частые вопросы</h2>
-        <p class="section-sub lang-en">Everything you need to know before ordering.</p>
-        <p class="section-sub lang-ru">Всё, что нужно знать перед заказом.</p>
+    <section class="faq-section" id="faq">
+        <div class="section-label" style="text-align:center;">
+            <span class="lang-en">GOT QUESTIONS?</span>
+            <span class="lang-ru">ЕСТЬ ВОПРОСЫ?</span>
+        </div>
+        <h2 class="section-heading" style="text-align:center; margin-bottom: 40px;">
+            <span class="lang-en">FAQ</span>
+            <span class="lang-ru">FAQ</span>
+        </h2>
 
         <div class="faq-item">
             <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
@@ -614,8 +870,8 @@
                 <span class="faq-arrow">+</span>
             </button>
             <div class="faq-answer">
-                <p class="lang-en">Yes. Villain hitting (打小人) is a real traditional practice in Hong Kong that has been performed for decades at Causeway Bay. A real performer carries out the ritual on your behalf.</p>
-                <p class="lang-ru">Да. «Побить злодея» (打小人) — это реальная традиционная практика в Гонконге, которую проводят десятилетиями в Козуэй-Бэй. Настоящий исполнитель проводит ритуал от вашего имени.</p>
+                <p class="lang-en">Yes. Villain hitting (打小人) is a real traditional practice in Hong Kong that has been performed for decades at Causeway Bay.</p>
+                <p class="lang-ru">Да. «Побить злодея» (打小人) — это реальная традиционная практика в Гонконге, проводимая десятилетиями в Козуэй-Бэй.</p>
             </div>
         </div>
 
@@ -626,8 +882,8 @@
                 <span class="faq-arrow">+</span>
             </button>
             <div class="faq-answer">
-                <p class="lang-en">You will receive proof of the completed ritual within 2–7 days after your payment is confirmed.</p>
-                <p class="lang-ru">Вы получите подтверждение выполненного ритуала в течение 2–7 дней после подтверждения оплаты.</p>
+                <p class="lang-en">You'll receive proof within 2–7 days after payment is confirmed.</p>
+                <p class="lang-ru">Вы получите подтверждение в течение 2–7 дней после оплаты.</p>
             </div>
         </div>
 
@@ -638,34 +894,11 @@
                 <span class="faq-arrow">+</span>
             </button>
             <div class="faq-answer">
-                <p class="lang-en">Absolutely. Your personal information is used only to process the order and deliver your proof. The target will never know who ordered the ritual.</p>
-                <p class="lang-ru">Абсолютно. Ваши данные используются только для обработки заказа и отправки подтверждения. Цель никогда не узнает, кто заказал ритуал.</p>
+                <p class="lang-en">100%. Your data is used only to process the order. The target will never know.</p>
+                <p class="lang-ru">На 100%. Ваши данные используются только для обработки заказа. Цель никогда не узнает.</p>
             </div>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                <span class="lang-en">Can I get a refund?</span>
-                <span class="lang-ru">Можно ли вернуть деньги?</span>
-                <span class="faq-arrow">+</span>
-            </button>
-            <div class="faq-answer">
-                <p class="lang-en">Refunds are available only before the order is passed to the performer. Once the ritual has been completed, no refunds can be issued.</p>
-                <p class="lang-ru">Возврат возможен только до передачи заказа исполнителю. После выполнения ритуала возврат не производится.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                <span class="lang-en">What do I need to provide?</span>
-                <span class="lang-ru">Что мне нужно указать?</span>
-                <span class="faq-arrow">+</span>
-            </button>
-            <div class="faq-answer">
-                <p class="lang-en">Just the target's full name and an optional reason. You can also upload a photo, but it's not required.</p>
-                <p class="lang-ru">Только полное имя цели и по желанию причину. Также можно загрузить фото, но это необязательно.</p>
-            </div>
-        </div>
 
         <div class="faq-item">
             <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
@@ -674,73 +907,152 @@
                 <span class="faq-arrow">+</span>
             </button>
             <div class="faq-answer">
-                <p class="lang-en">This service is provided for cultural, symbolic, and entertainment purposes. Whether you believe in its power is entirely up to you — either way, it's deeply satisfying to watch.</p>
-                <p class="lang-ru">Услуга предоставляется в культурных, символических и развлекательных целях. Верить в её силу — ваш выбор. В любом случае, смотреть на это крайне приятно.</p>
+                <p class="lang-en">This is for cultural, symbolic, and entertainment purposes. Whether you believe in its power is up to you — either way, it's deeply satisfying to watch.</p>
+                <p class="lang-ru">Услуга предоставляется в культурных, символических и развлекательных целях. Верить в её силу — ваш выбор. В любом случае, смотреть крайне приятно.</p>
             </div>
         </div>
     </section>
 
+    <!-- ORDER -->
     <section class="order-section" id="order">
-        <div class="section">
-            <h2 class="section-title lang-en">Order Your Ritual</h2>
-            <h2 class="section-title lang-ru">Заказать ритуал</h2>
-            <p class="section-sub lang-en">Fill in the details. We'll take care of the rest.</p>
-            <p class="section-sub lang-ru">Заполните данные. Мы позаботимся об остальном.</p>
+        <div class="section-label" style="text-align:center;">
+            <span class="lang-en">TIME TO ACT</span>
+            <span class="lang-ru">ВРЕМЯ ДЕЙСТВОВАТЬ</span>
+        </div>
+        <h2 class="section-heading" style="text-align:center; margin-bottom: 8px;">
+            <span class="lang-en">ORDER YOUR <span class="hl">RITUAL</span></span>
+            <span class="lang-ru">ЗАКАЖИТЕ <span class="hl">РИТУАЛ</span></span>
+        </h2>
+        <p class="section-script" style="text-align:center; margin-bottom: 30px;">
+            <span class="lang-en">Fill in the details. We handle the rest.</span>
+            <span class="lang-ru">Заполните данные. Мы сделаем остальное.</span>
+        </p>
 
-            <div class="order-box">
-                <div class="price-tag">
-                    <div class="price">$29.99</div>
-                    <div class="price-note lang-en">One-time payment &bull; No subscription</div>
-                    <div class="price-note lang-ru">Единоразовая оплата &bull; Без подписки</div>
+        <div class="order-box">
+            <div class="price-row">
+                <span class="price-old">$9.99</span>
+                <span class="price-new">$7.49</span>
+                <span class="price-save">SAVE 25%</span>
+                <div class="price-note lang-en">May special — 25% off all orders</div>
+                <div class="price-note lang-ru">Акция мая — скидка 25% на все заказы</div>
+            </div>
+
+            <form id="ritualForm">
+                <div class="form-group">
+                    <label class="lang-en">Your Email</label>
+                    <label class="lang-ru">Ваш Email</label>
+                    <input type="email" id="userEmail" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="lang-en">Target's Full Name</label>
+                    <label class="lang-ru">Полное имя цели</label>
+                    <input type="text" id="targetName" placeholder="..." required>
+                </div>
+                <div class="form-group">
+                    <label class="lang-en">Reason</label>
+                    <label class="lang-ru">Причина</label>
+                    <textarea id="reason" rows="3" placeholder="..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="lang-en">Target's Photo (Optional)</label>
+                    <label class="lang-ru">Фото цели (необязательно)</label>
+                    <input type="file" id="targetPhoto" accept="image/*">
                 </div>
 
-                <form id="ritualForm">
-                    <div class="form-group">
-                        <label class="lang-en" for="userEmail">Your Email</label>
-                        <label class="lang-ru" for="userEmail">Ваш Email</label>
-                        <input type="email" id="userEmail" placeholder="you@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="lang-en" for="targetName">Target's Full Name</label>
-                        <label class="lang-ru" for="targetName">Полное имя цели</label>
-                        <input type="text" id="targetName" placeholder="..." required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="lang-en" for="reason">Reason</label>
-                        <label class="lang-ru" for="reason">Причина</label>
-                        <textarea id="reason" rows="3" placeholder="..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="lang-en" for="targetPhoto">Target's Photo (Optional)</label>
-                        <label class="lang-ru" for="targetPhoto">Фото цели (необязательно)</label>
-                        <input type="file" id="targetPhoto" accept="image/*">
-                    </div>
-
-                    <div class="lang-en">
-                        <button type="button" class="btn-order" id="btn-submit-en" onclick="processOrder('en')">Submit Order &amp; Pay</button>
-                        <p class="cis-hint">From CIS/Russia? <a onclick="processOrder('ru')">Click here to pay with local cards</a></p>
-                    </div>
-
-                    <button type="button" class="btn-order lang-ru" id="btn-submit-ru" onclick="processOrder('ru')">Отправить заказ</button>
-                </form>
-
-                <div class="fine-print">
-                    <p class="lang-en"><strong>Delivery:</strong> Proof is usually delivered within 2–7 days after confirmed payment.</p>
-                    <p class="lang-ru"><strong>Срок:</strong> Подтверждение обычно отправляется в течение 2–7 дней после оплаты.</p>
-
-                    <p class="lang-en"><strong>Refunds:</strong> Available only before the order is passed to the performer. No refunds after the ritual has been completed.</p>
-                    <p class="lang-ru"><strong>Возврат:</strong> Возможен только до передачи заказа исполнителю. После выполнения ритуала возврат не производится.</p>
-
-                    <p class="lang-en"><strong>Privacy:</strong> Your information is used only to process the order. We never share your data.</p>
-                    <p class="lang-ru"><strong>Конфиденциальность:</strong> Данные используются только для обработки заказа.</p>
+                <div class="lang-en">
+                    <button type="button" class="btn-order" id="btn-submit-en" onclick="processOrder('en')">SUBMIT ORDER &amp; PAY →</button>
+                    <p class="cis-hint">From CIS/Russia? <a onclick="processOrder('ru')">Click here for local payment</a></p>
                 </div>
+                <button type="button" class="btn-order lang-ru" id="btn-submit-ru" onclick="processOrder('ru')">ОТПРАВИТЬ ЗАКАЗ →</button>
+            </form>
+
+            <div class="fine-print">
+                <p class="lang-en"><strong>Delivery:</strong> Proof delivered within 2–7 days after confirmed payment.</p>
+                <p class="lang-ru"><strong>Срок:</strong> Подтверждение в течение 2–7 дней после оплаты.</p>
+                <p class="lang-en"><strong>Privacy:</strong> Your data is used only to process the order. We never share it.</p>
+                <p class="lang-ru"><strong>Конфиденциальность:</strong> Данные используются только для обработки заказа.</p>
             </div>
         </div>
     </section>
 
+    <!-- REVIEWS -->
+    <section class="reviews-section">
+        <div class="section-label">
+            <span class="lang-en">VERIFIED ORDERS</span>
+            <span class="lang-ru">ПОДТВЕРЖДЁННЫЕ ЗАКАЗЫ</span>
+        </div>
+        <h2 class="section-heading">
+            <span class="lang-en">CLIENTS <span class="hl">LOVE US</span></span>
+            <span class="lang-ru">КЛИЕНТЫ <span class="hl">В ВОСТОРГЕ</span></span>
+        </h2>
+        <p class="section-script">
+            <span class="lang-en">Straight from the people who tried it</span>
+            <span class="lang-ru">Прямо от тех, кто попробовал</span>
+        </p>
+
+        <div class="reviews-grid" style="margin-top: 40px;">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"Ordered this on my toxic boss. Two weeks later he got transferred to another department. Life never felt this good."</div>
+                <div class="review-author">— Jake M.</div>
+                <div class="review-verified">✓ VERIFIED CLIENT</div>
+                <div class="review-type">Villain Hitting Ritual</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"Заказала на бывшего, который мне изменил. Через неделю его бросила новая девушка. Я считаю карма заслужена."</div>
+                <div class="review-author">— Alina K.</div>
+                <div class="review-verified">✓ VERIFIED CLIENT</div>
+                <div class="review-type">Villain Hitting Ritual</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"嫌いな同僚に注文しました。翌週、彼は会議で上司に怒られました。心からスッキリしました。"</div>
+                <div class="review-author">— Yuki T.</div>
+                <div class="review-verified">✓ VERIFIED CLIENT</div>
+                <div class="review-type">Villain Hitting Ritual</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"My neighbor kept parking in my spot for months. Ordered the ritual on a Friday. By Monday he moved out. I'm not saying it's connected but I'm also not NOT saying it."</div>
+                <div class="review-author">— Brittany S.</div>
+                <div class="review-verified">✓ VERIFIED CLIENT</div>
+                <div class="review-type">Villain Hitting Ritual</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"Заказал на человека, который кинул меня на деньги. Через пару дней он сам написал и вернул долг. Совпадение? Не думаю."</div>
+                <div class="review-author">— Denis R.</div>
+                <div class="review-verified">✓ VERIFIED CLIENT</div>
+                <div class="review-type">Villain Hitting Ritual</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"Fiz o ritual contra meu ex que me traiu. Em duas semanas ele perdeu o emprego. Karma é real, e por $7 eu compraria de novo sem pensar."</div>
+                <div class="review-author">— Lucas F.</div>
+                <div class="review-verified">✓ VERIFIED CLIENT</div>
+                <div class="review-type">Villain Hitting Ritual</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERY INFO -->
+    <section id="delivery" style="padding: 60px 20px; text-align: center; border-top: 1px solid var(--border);">
+        <div class="section-label lang-en">RITUAL PERFORMED IN</div>
+        <div class="section-label lang-ru">РИТУАЛ ПРОВОДИТСЯ В</div>
+        <h2 class="section-heading" style="margin-bottom: 8px;">HONG KONG 🇭🇰</h2>
+        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">
+            <span class="lang-en">Real ritual. Real performer. Causeway Bay tradition. 2–7 day delivery time. You receive proof of successful completion.</span>
+            <span class="lang-ru">Настоящий ритуал. Настоящий исполнитель. Традиция Козуэй-Бэй. Доставка 2–7 дней. Вы получите подтверждение успешного завершения.</span>
+        </p>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <p class="lang-en">&copy; 2026 Karma Strike. All rights reserved.</p>
         <p class="lang-ru">&copy; 2026 Karma Strike. Все права защищены.</p>
@@ -753,11 +1065,9 @@
         const GUMROAD_LINK = 'https://englishforimmigrants.gumroad.com/l/villain-hit?wanted=true';
 
         function setLang(lang) {
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById('btn-ru').classList.remove('active');
-            document.getElementById('btn-' + lang).classList.add('active');
-
             document.body.className = lang;
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
 
             if (lang === 'ru') {
                 document.getElementById('targetName').placeholder = 'Иванов Иван Иванович';
@@ -766,6 +1076,13 @@
                 document.getElementById('targetName').placeholder = 'Dylan Alexander Harrison';
                 document.getElementById('reason').placeholder = 'Conflict, betrayal, toxic behavior...';
             }
+        }
+
+        function scrollTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            // Highlight active nav link
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            event.target.closest('.nav-link')?.classList.add('active');
         }
 
         async function processOrder(lang) {
@@ -805,38 +1122,25 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, name, reason, lang, photoBase64 })
                 });
-
                 window.location.href = lang === 'ru' ? LAVA_LINK : GUMROAD_LINK;
-
             } catch (error) {
                 console.error("Send error:", error);
-                alert(lang === 'ru' ? 'Произошла ошибка. Попробуйте ещё раз.' : 'An error occurred. Please try again.');
-                if (btnEn) { btnEn.innerText = "Submit Order & Pay"; btnEn.disabled = false; }
-                if (btnRu) { btnRu.innerText = "Отправить заказ"; btnRu.disabled = false; }
+                alert(lang === 'ru' ? 'Ошибка. Попробуйте ещё раз.' : 'Error. Please try again.');
+                if (btnEn) { btnEn.innerText = "SUBMIT ORDER & PAY →"; btnEn.disabled = false; }
+                if (btnRu) { btnRu.innerText = "ОТПРАВИТЬ ЗАКАЗ →"; btnRu.disabled = false; }
             }
         }
 
-        setLang('en');
-
-        // Force autoplay on all videos
+        // Force autoplay videos
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('video').forEach(function(video) {
-                video.muted = true;
-                video.play().catch(function() {});
-            });
+            document.querySelectorAll('video').forEach(v => { v.muted = true; v.play().catch(()=>{}); });
+        });
+        var vp = false;
+        window.addEventListener('scroll', function() {
+            if (!vp) { document.querySelectorAll('video').forEach(v => { v.muted=true; v.play().catch(()=>{}); }); vp=true; }
         });
 
-        // Also try on scroll (some browsers need user interaction first)
-        var videoPlayed = false;
-        window.addEventListener('scroll', function() {
-            if (!videoPlayed) {
-                document.querySelectorAll('video').forEach(function(video) {
-                    video.muted = true;
-                    video.play().catch(function() {});
-                });
-                videoPlayed = true;
-            }
-        });
+        setLang('en');
     </script>
 </body>
 </html>
